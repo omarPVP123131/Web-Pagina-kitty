@@ -84,7 +84,6 @@ function generatePDF(products) {
         fit: [100, 100], // Hace que la imagen ocupe el 100% del espacio disponible
         alignment: "right", // Alinea la imagen a la derecha
         style: {
-            backgroundColor: "#ff007f", // Color de fondo rosa
             border: [5, "#ffffff"], // Agrega un borde blanco de 5 puntos alrededor de la imagen
             borderRadius: 25 // Hace que las esquinas de la imagen sean redondeadas
         }
@@ -92,10 +91,19 @@ function generatePDF(products) {
 
     // Crear la definición del documento PDF
     const docDefinition = {
-        background: { // Establecer el color de fondo para toda la página del PDF
-            color: "#f745bb" // Color rosa para el fondo de la página
-        },
         content: [
+            {
+                canvas: [
+                    {
+                        type: "rect", // Tipo de elemento: rectángulo
+                        x: 0,
+                        y: 0,
+                        w: 595.28, // Ancho de la página (tamaño A4)
+                        h: 841.89, // Alto de la página (tamaño A4)
+                        color: "#f745bb", // Color de fondo rosa
+                    },
+                ],
+            },
             { text: 'Carrito de compras Kawaii', fontSize: 24, margin: [0, 0, 0, 20], bold: true, alignment: 'center', color: '#ff007f' },
             // Agregar los productos al PDF con estilo kawaii
             ...products.map((product, index) => {
@@ -112,6 +120,5 @@ function generatePDF(products) {
     // Generar el documento PDF
     const pdfDocGenerator = pdfMake.createPdf(docDefinition);
     pdfDocGenerator.open();
-
-
+    
 }
