@@ -50,10 +50,9 @@ function generatePDF(products) {
     const docDefinition = {
         content: [
             { text: 'Carrito de compras Kawaii', fontSize: 24, margin: [0, 0, 0, 20] },
-            // Agregar los productos al PDF con estilo kawaii
+            // Agregar los productos al PDF sin imágenes
             ...products.map((product, index) => {
                 return [
-                    { image: 'images/cute.jpeg', width: 20, height: 20, margin: [0, 5, 10, 0] },
                     { text: product.name, fontSize: 16 },
                     { text: product.description, fontSize: 12 },
                     { text: '', margin: [0, 10, 0, 0] } // Espacio entre productos
