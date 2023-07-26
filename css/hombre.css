@@ -59,7 +59,7 @@ body {
     color: #2bc22b; /* Cambia a color #ff69b4 al poner el cursor sobre "Mujer" */
   }
   
-    nav li.fas fa-shopping-cart:hover {
+    nav li i.fas fa-shopping-cart:hover {
     color: #2bc22b; /* Cambia a color #ff69b4 al poner el cursor sobre "Mujer" */
   }
   
