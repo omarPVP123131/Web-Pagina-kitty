@@ -91,11 +91,18 @@ const cuteImageWithStyle = {
 
 // Crear la definición del documento PDF
 const docDefinition = {
-    background: {
-        color: "#f745bb" // Color de fondo rosa para toda la página del PDF
-    },
     content: [
-        { text: 'Carrito de compras Kawaii', fontSize: 24, margin: [0, 0, 0, 20], bold: true, alignment: 'center', color: '#ff007f' },
+        {
+            table: {
+                widths: ["*"],
+                body: [
+                    // Agregar una celda con el color de fondo deseado
+                    [{ text: "", fillColor: "#f745bb" }]
+                ],
+            },
+            layout: 'noBorders'
+        },
+        { text: 'Carrito de compras Kawaii', fontSize: 24, margin: [0, 10], bold: true, alignment: 'center', color: '#ff007f' },
         // Agregar los productos al PDF con estilo kawaii
         ...products.map((product, index) => {
             return [
@@ -111,4 +118,8 @@ const docDefinition = {
 // Generar el documento PDF
 const pdfDocGenerator = pdfMake.createPdf(docDefinition);
 pdfDocGenerator.open();
+
+
+
+
 }
