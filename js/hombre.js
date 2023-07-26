@@ -46,17 +46,8 @@ checkoutBtn.addEventListener("click", () => {
 
 // Función para generar el PDF con los productos del carrito
 function generatePDF(products) {
-
-        products.forEach((product, index) => {
-            if (index >= maxProductsPerPage) {
-                // Reducir el tamaño de la imagen
-                imageSize -= step;
-                // Asignar el nuevo tamaño a la imagen kawaii con estilo
-                cuteImageWithStyle.width = imageSize;
-                cuteImageWithStyle.height = imageSize;
-            }
-        });
-    
+    // Tamaño inicial de la imagen kawaii
+    const imageSize = 50;
 
     
     // Convertir la imagen a datos URI
@@ -76,34 +67,34 @@ const cuteImageWithStyle = {
     }
 };
 
-// Crear la definición del documento PDF
-const docDefinition = {
-    pageSize: 'A4', // Tamaño de la página
-    pageMargins: [40, 60, 40, 60], // Márgenes de la página (izquierda, arriba, derecha, abajo)
-    background: { // Color de fondo para toda la página del PDF
-        canvas: [{ type: 'rect', x: 0, y: 0, w: 595.28, h: 841.89, color: '#34c4f0' }]
-    },
-    content: [
-        { text: 'Carrito de compras Kawaii', fontSize: 24, margin: [0, 10, 0, 20], bold: true, alignment: 'center', color: '#ff007f' },
-
-        // Agregar la imagen kawaii con estilo en la esquina derecha
-        { 
-            absolutePosition: { x: 530, y: 700  }, // Posición absoluta en la esquina derecha
-            ...cuteImageWithStyle
+    // Crear la definición del documento PDF
+    const docDefinition = {
+        pageSize: 'A4', // Tamaño de la página
+        pageMargins: [40, 60, 40, 60], // Márgenes de la página (izquierda, arriba, derecha, abajo)
+        background: { // Color de fondo para toda la página del PDF
+            canvas: [{ type: 'rect', x: 0, y: 0, w: 595.28, h: 841.89, color: '#34c4f0' }]
         },
-        // Agregar los productos al PDF con estilo kawaii
-        ...products.map((product, index) => {
-            return [
-                { text: product.name, fontSize: 18, bold: true, color: '#ff007f' },
-                { text: product.description, fontSize: 14, margin: [0, 5], color: '#333333' },
-                { text: '', margin: [0, 10, 0, 0] }
-            ];
-        })
-    ]
-};
+        content: [
+            { text: 'Carrito de compras Kawaii', fontSize: 24, margin: [0, 10], bold: true, alignment: 'center', color: '#ff007f' },
+            // Agregar la imagen kawaii con estilo en la esquina derecha
+            {
+                absolutePosition: { x: 530, y: 700 }, // Posición absoluta en la esquina derecha
+                ...cuteImageWithStyle
+            },
+            // Agregar los productos al PDF con estilo kawaii
+            ...products.map((product, index) => {
+                return [
+                    // Espacio entre productos (excepto el primero)
+                    index > 0 ? { text: '', pageBreak: 'before' } : undefined,
+                    { ...cuteImageWithStyle }, // Agregar la imagen kawaii con estilo
+                    { text: product.name, fontSize: 18, bold: true, color: '#ff007f' },
+                    { text: product.description, fontSize: 14, margin: [0, 5], color: '#333333' },
+                ];
+            })
+        ]
+    };
 
-// Generar el documento PDF
-const pdfDocGenerator = pdfMake.createPdf(docDefinition);
-pdfDocGenerator.open();
-
+    // Generar el documento PDF
+    const pdfDocGenerator = pdfMake.createPdf(docDefinition);
+    pdfDocGenerator.open();
 }
