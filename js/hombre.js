@@ -3,20 +3,19 @@ const cartIcon = document.querySelector(".cart-icon");
 const cart = document.querySelector(".cart");
 const checkoutBtn = document.querySelector(".checkout"); // Obtener el botón "Finalizar compra"
 
-
 // Evento para mostrar/ocultar el carrito al hacer clic en el ícono
 cartIcon.addEventListener("click", () => {
     cart.classList.toggle("show");
 });
 
- // Array para almacenar los productos agregados al carrito
- const cartProducts = [];
+// Array para almacenar los productos agregados al carrito
+const cartProducts = [];
 
 const addToCartButtons = document.querySelectorAll(".add-to-cart");
 const cartItemsList = document.querySelector(".cart-items");
 
- // Evento para agregar productos al carrito al hacer clic en el botón "Agregar al carrito"
- addToCartButtons.forEach((button, index) => {
+// Evento para agregar productos al carrito al hacer clic en el botón "Agregar al carrito"
+addToCartButtons.forEach((button, index) => {
     button.addEventListener("click", () => {
         const product = button.parentElement;
         const productName = product.querySelector("img").alt;
@@ -38,8 +37,6 @@ const cartItemsList = document.querySelector(".cart-items");
     });
 });
 
-
-
 // Evento para finalizar la compra y generar el PDF
 checkoutBtn.addEventListener("click", () => {
     // Generar el PDF con los productos del carrito
@@ -48,34 +45,23 @@ checkoutBtn.addEventListener("click", () => {
 
 // Función para generar el PDF con los productos del carrito
 function generatePDF(products) {
-    // Crear un nuevo objeto jsPDF
-    const doc = new jsPDF();
+    // Crear la definición del documento PDF
+    const docDefinition = {
+        content: [
+            { text: 'Carrito de compras Kawaii', fontSize: 24, margin: [0, 0, 0, 20] },
+            // Agregar los productos al PDF con estilo kawaii
+            ...products.map((product, index) => {
+                return [
+                    { image: '/ruta/a/la/imagen-kawaii.jpg', width: 20, height: 20, margin: [0, 5, 10, 0] },
+                    { text: product.name, fontSize: 16 },
+                    { text: product.description, fontSize: 12 },
+                    { text: '', margin: [0, 10, 0, 0] } // Espacio entre productos
+                ];
+            })
+        ]
+    };
 
-    // Título del PDF
-    doc.setFontSize(24);
-    doc.text("Carrito de compras Kawaii", 20, 20);
-
-    // Imagen kawaii
-    const kawaiiImg = new Image();
-    kawaiiImg.src = "/ruta/a/la/imagen-kawaii.jpg"; // Reemplaza esta ruta con la ruta correcta de la imagen kawaii
-
-    // Agregar los productos al PDF con estilo kawaii
-    products.forEach((product, index) => {
-        const yPos = 40 + (index * 40);
-
-        // Agregar la imagen kawaii junto al nombre y descripción del producto
-        doc.addImage(kawaiiImg, "JPEG", 20, yPos - 10, 20, 20);
-        doc.setFontSize(16);
-        doc.text(`${product.name}`, 50, yPos);
-        doc.setFontSize(12);
-        doc.text(`${product.description}`, 50, yPos + 15);
-    });
-
-    // Mostrar el PDF en una ventana emergente para que el usuario pueda guardarlo o imprimirlo
-    const pdfString = doc.output('datauristring');
-    const iframe = '<iframe width="100%" height="100%" src="' + pdfString + '"></iframe>'
-    const x = window.open();
-    x.document.open();
-    x.document.write(iframe);
-    x.document.close();
+    // Generar el documento PDF
+    const pdfDocGenerator = pdfMake.createPdf(docDefinition);
+    pdfDocGenerator.open();
 }
