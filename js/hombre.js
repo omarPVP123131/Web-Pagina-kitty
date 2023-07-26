@@ -14,9 +14,18 @@ const cartProducts = [];
 const addToCartButtons = document.querySelectorAll(".add-to-cart");
 const cartItemsList = document.querySelector(".cart-items");
 
+// Establecer límite máximo de productos en el carrito
+const maxProductsInCart = 25;
+
 // Evento para agregar productos al carrito al hacer clic en el botón "Agregar al carrito"
 addToCartButtons.forEach((button, index) => {
     button.addEventListener("click", () => {
+        // Verificar si se ha alcanzado el límite máximo de productos en el carrito
+        if (cartProducts.length >= maxProductsInCart) {
+            alert("¡El carrito ha alcanzado el límite máximo de productos!");
+            return; // Detener la ejecución si se ha alcanzado el límite
+        }
+
         const product = button.parentElement;
         const productName = product.querySelector("img").alt;
         const productDescription = product.querySelector(".product-info p").textContent;
@@ -34,35 +43,8 @@ addToCartButtons.forEach((button, index) => {
             <span>${productDescription}</span>
         `;
 
-        // Ocultar elementos después del cuarto producto
-        if (cartItemsList.children.length > 4) {
-            listItem.classList.add("hidden");
-        }
-
         cartItemsList.appendChild(listItem);
-
-        // Si hay más de 4 productos en el carrito, mostrar el botón "Ver más"
-        if (cartItemsList.children.length > 4) {
-            seeMoreButton.style.display = "block";
-        }
     });
-});
-
-// Obtener el botón "Ver más"
-const seeMoreButton = document.querySelector(".see-more");
-
-// Evento para mostrar/ocultar más productos al hacer clic en el botón "Ver más"
-seeMoreButton.addEventListener("click", () => {
-    // Mostrar 4 productos ocultos en el carrito
-    const hiddenItems = document.querySelectorAll(".cart-items li.hidden");
-    for (let i = 0; i < Math.min(4, hiddenItems.length); i++) {
-        hiddenItems[i].classList.remove("hidden");
-    }
-
-    // Ocultar el botón "Ver más" si no quedan más elementos ocultos
-    if (hiddenItems.length <= 4) {
-        seeMoreButton.style.display = "none";
-    }
 });
 
 // Evento para finalizar la compra y generar el PDF
@@ -71,6 +53,7 @@ checkoutBtn.addEventListener("click", () => {
     // Generar el PDF con los productos del carrito
     generatePDF(cartProducts);
 });
+
 
 // Función para generar el PDF con los productos del carrito
 function generatePDF(products) {
