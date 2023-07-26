@@ -100,7 +100,7 @@ const docDefinition = {
         { text: 'Carrito de compras Kawaii', fontSize: 24, margin: [0, 10], bold: true, alignment: 'center', color: '#ff007f' },
         // Agregar la imagen kawaii con estilo en la esquina derecha
         { 
-            absolutePosition: { x: 530, y: 790  }, // Posición absoluta en la esquina derecha
+            absolutePosition: { x: 530, y: 700  }, // Posición absoluta en la esquina derecha
             ...cuteImageWithStyle
         },
         // Agregar los productos al PDF con estilo kawaii
