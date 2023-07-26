@@ -97,7 +97,7 @@ body {
 
 /* Estilos para el carrito desplegable */
 .cart {
-    position: sticky;
+    position: relative;
     top: 80px;
     right: 20px;
     background-color: #22fdd9;
