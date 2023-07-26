@@ -22,7 +22,7 @@ addToCartButtons.forEach((button, index) => {
     button.addEventListener("click", () => {
         // Verificar si se ha alcanzado el límite máximo de productos en el carrito
         if (cartProducts.length >= maxProductsInCart) {
-            alert("¡El carrito ha alcanzado el límite máximo de productos!");
+            alert("¡El carrito ha alcanzado el límite máximo de productos !Por favor Termina tu compra con los productos actuales y luego vuelve a por mas!");
             return; // Detener la ejecución si se ha alcanzado el límite
         }
 
