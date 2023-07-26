@@ -96,25 +96,24 @@ const docDefinition = {
     content: [
         {
             table: {
-                widths: ['*', 'auto'], // Columnas de la tabla, '*' significa que ocupa todo el ancho disponible
+                widths: ['*'], // Columna de la tabla, '*' significa que ocupa todo el ancho disponible
                 body: [
-                    [
-                        // Agregar los productos al PDF con estilo kawaii
-                        {
-                            stack: products.map((product, index) => {
-                                return [
-                                    { text: product.name, fontSize: 18, bold: true, color: '#ff007f' },
-                                    { text: product.description, fontSize: 14, margin: [0, 5], color: '#333333' },
-                                    { text: '', margin: [0, 10, 0, 0] }
-                                ];
-                            })
-                        },
-                        // Agregar la imagen kawaii con estilo en la esquina derecha
-                        { image: cuteImage, width: 50, height: 50, alignment: 'right', margin: [0, 5, 10, 0], fit: [100, 100], style: { border: [5, "#ffffff"], borderRadius: 25 } }
-                    ]
+                    // Agregar los productos al PDF con estilo kawaii
+                    ...products.map((product, index) => {
+                        return [
+                            { text: product.name, fontSize: 18, bold: true, color: '#ff007f' },
+                            { text: product.description, fontSize: 14, margin: [0, 5], color: '#333333' },
+                            { text: '', margin: [0, 10, 0, 0] }
+                        ];
+                    })
                 ]
             },
             layout: 'noBorders' // Elimina los bordes de la tabla
+        },
+        // Agregar la imagen kawaii con estilo en la esquina derecha
+        {
+            absolutePosition: { x: 530, y: 720 }, // Posición absoluta en la esquina derecha
+            ...cuteImageWithStyle
         }
     ]
 };
@@ -122,4 +121,5 @@ const docDefinition = {
 // Generar el documento PDF
 const pdfDocGenerator = pdfMake.createPdf(docDefinition);
 pdfDocGenerator.open();
+
 }
