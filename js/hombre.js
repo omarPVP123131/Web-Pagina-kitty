@@ -87,15 +87,13 @@ const cuteImageWithStyle = {
         },
         // Función para agregar el título en la parte superior de cada página
         header: (currentPage, pageCount) => {
-            return { text: 'Carrito de compras Kawaii', fontSize: 24, margin: [40, 10], bold: true, color: '#ff007f' };
+            return { text: 'Carrito de compras Kawaii', fontSize: 24, margin: [0, 10, 0, 20], bold: true, alignment: 'center', color: '#ff007f' };
         },
         // Función para agregar el número de página en la parte inferior de cada página
         footer: (currentPage, pageCount) => {
             return { text: `Página ${currentPage} de ${pageCount}`, alignment: 'center', margin: [0, 20] };
         },
         content: [
-            { text: 'Carrito de compras Kawaii', fontSize: 24, margin: [0, 10, 0, 20], bold: true, alignment: 'center', color: '#ff007f' },
-
             // Agregar la imagen kawaii con estilo en la esquina derecha
             { 
                 absolutePosition: { x: 530, y: 700  }, // Posición absoluta en la esquina derecha
