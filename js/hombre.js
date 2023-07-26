@@ -53,7 +53,7 @@ function generatePDF(products) {
             // Agregar los productos al PDF con estilo kawaii
             ...products.map((product, index) => {
                 return [
-                    { image: '/images/cute.jpeg', width: 20, height: 20, margin: [0, 5, 10, 0] },
+                    { image: 'images/cute.jpeg', width: 20, height: 20, margin: [0, 5, 10, 0] },
                     { text: product.name, fontSize: 16 },
                     { text: product.description, fontSize: 12 },
                     { text: '', margin: [0, 10, 0, 0] } // Espacio entre productos
