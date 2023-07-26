@@ -97,7 +97,7 @@ const cuteImageWithStyle = {
             canvas: [{ type: 'rect', x: 0, y: 0, w: 595.28, h: 841.89, color: '#f745bb' }]
         },
         content: [
-            { text: 'Carrito de compras Kawaii', fontSize: 24, margin: [0, 10], bold: true, alignment: 'center', color: '#ff007f' },
+            { text: 'Carrito de compras Kawaii', fontSize: 24, margin: [0, 10], bold: true, alignment: 'center', color: '#34c4f0' },
             // Agregar los productos al PDF con estilo kawaii
             ...products.map((product, index) => {
                 return [
