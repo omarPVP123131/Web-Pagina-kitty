@@ -81,7 +81,7 @@ const cuteImageWithStyle = {
     width: 50, // Ajusta el tamaño de la imagen a tu preferencia
     height: 50,
     margin: [0, 5, 10, 0],
-    background: "#ff007f", // Color de fondo rosa
+    background: { color: "#ff007f" }, // Objeto con el color de fondo rosa
     fit: [100, 100], // Hace que la imagen ocupe el 100% del espacio disponible
     alignment: "right", // Alinea la imagen a la derecha
     style: {
@@ -92,7 +92,7 @@ const cuteImageWithStyle = {
 
 // Crear la definición del documento PDF
 const docDefinition = {
-    background: "#f745bb", // Color de fondo para toda la página del PDF
+    background: { color: "#f745bb" }, // Objeto con el color de fondo para toda la página del PDF
     content: [
         { text: 'Carrito de compras Kawaii', fontSize: 24, margin: [0, 0, 0, 20], bold: true, alignment: 'center', color: '#ff007f' },
         // Agregar los productos al PDF con estilo kawaii
