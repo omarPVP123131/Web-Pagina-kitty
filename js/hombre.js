@@ -49,12 +49,12 @@ function generatePDF(products) {
     // Crear la definición del documento PDF
     const docDefinition = {
         content: [
-            { text: 'Carrito de compras Kawaii', fontSize: 24, margin: [0, 0, 0, 20] },
-            // Agregar los productos al PDF sin imágenes
+            { text: 'Carrito de compras Kawaii', fontSize: 24, margin: [0, 0, 0, 20], bold: true, alignment: 'center' }, // Texto centrado y en negrita
+            // Agregar los productos al PDF con estilos personalizados
             ...products.map((product, index) => {
                 return [
-                    { text: product.name, fontSize: 16 },
-                    { text: product.description, fontSize: 12 },
+                    { text: product.name, fontSize: 16, bold: true, color: '#ff6600' }, // Título del producto en negrita y color naranja
+                    { text: product.description, fontSize: 12, margin: [0, 5] }, // Descripción del producto con margen superior de 5
                     { text: '', margin: [0, 10, 0, 0] } // Espacio entre productos
                 ];
             })
