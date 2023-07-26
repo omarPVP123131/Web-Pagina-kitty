@@ -87,6 +87,7 @@ nav li a.mujer-link:hover {
 }
 
 #contacto li {
+
   margin-bottom: 10px;
 }
 
@@ -117,6 +118,17 @@ footer {
   font-size: 24px;
 }
 
+.social-media li a:hover {
+  color: #2b72c2; /* Color al poner el cursor sobre el ícono de Facebook */
+}
+
+.social-media li a[href*="instagram"]:hover {
+  color: #e4405f; /* Color al poner el cursor sobre el ícono de Instagram */
+}
+
+.social-media li a[href*="whatsapp"]:hover {
+  color: #25d366; /* Color al poner el cursor sobre el ícono de WhatsApp */
+}
 /* Estilos para el certificado en la esquina izquierda */
 .certificate:nth-child(1),
 .certificate:nth-child(2) {

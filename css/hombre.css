@@ -12,12 +12,16 @@ body {
   }
   
   /* Estilos del encabezado */
-  header {
-    background-color: #7551e9;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-  }
+header {
+  width: auto;
+  border-color: #ffc0cb;
+  background-color: #7551e9;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
   
   header h1 {
     font-size: 36px;
@@ -149,31 +153,45 @@ nav li.cart-icon:hover .fas.fa-shopping-cart {
 }
 
 /* Estilos para el pie de página */
-footer {
-    position: relative;
-    bottom: 0;
-    width: 100%;
+
+  footer {
+    width: auto;
     background-color: #6c48d9;
     color: #fff;
     padding: 20px;
     text-align: center;
+    position: relative;
+    border-top: 1px solid #ff69b4;
   }
   
   .social-media {
     list-style: none;
     padding: 0;
-  }
-  
-  .social-media li {
+}
+
+.social-media li {
     display: inline-block;
     margin-right: 10px;
-  }
-  
-  .social-media li a {
+}
+
+.social-media li a {
     color: #fff;
     text-decoration: none;
     font-size: 24px;
-  }
+}
+
+.social-media li a:hover {
+    color: #2b72c2; /* Color al poner el cursor sobre el ícono de Facebook */
+}
+
+.social-media li a[href*="instagram"]:hover {
+    color: #e4405f; /* Color al poner el cursor sobre el ícono de Instagram */
+}
+
+.social-media li a[href*="whatsapp"]:hover {
+    color: #25d366; /* Color al poner el cursor sobre el ícono de WhatsApp */
+}
+
   
   /* Estilos para la sección de contacto */
   #contacto {
