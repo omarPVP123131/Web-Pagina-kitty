@@ -33,28 +33,38 @@ addToCartButtons.forEach((button, index) => {
             <span>${productName}</span>
             <span>${productDescription}</span>
         `;
+
+        // Ocultar elementos después del cuarto producto
+        if (cartItemsList.children.length > 4) {
+            listItem.classList.add("hidden");
+        }
+
         cartItemsList.appendChild(listItem);
 
-// Si hay más de 4 productos en el carrito, mostrar el botón "Ver más"
-        if (cartProducts.length > 4) {
+        // Si hay más de 4 productos en el carrito, mostrar el botón "Ver más"
+        if (cartItemsList.children.length > 4) {
             const seeMoreButton = document.querySelector(".see-more");
             seeMoreButton.style.display = "block";
         }
     });
 });
 
+
 // Evento para mostrar/ocultar más productos al hacer clic en el botón "Ver más"
 const seeMoreButton = document.querySelector(".see-more");
 seeMoreButton.addEventListener("click", () => {
-    // Mostrar más productos ocultos en el carrito
+    // Mostrar 4 productos ocultos en el carrito
     const hiddenItems = document.querySelectorAll(".cart-items li.hidden");
-    hiddenItems.forEach(item => {
-        item.classList.remove("hidden");
-    });
+    for (let i = 0; i < Math.min(4, hiddenItems.length); i++) {
+        hiddenItems[i].classList.remove("hidden");
+    }
 
-    // Ocultar el botón "Ver más" una vez que se han mostrado todos los productos
-    seeMoreButton.style.display = "none";
+    // Ocultar el botón "Ver más" si no quedan más elementos ocultos
+    if (hiddenItems.length <= 4) {
+        seeMoreButton.style.display = "none";
+    }
 });
+
 // Evento para finalizar la compra y generar el PDF
 checkoutBtn.addEventListener("click", () => {
     console.log("evento1")
