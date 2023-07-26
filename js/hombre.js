@@ -72,7 +72,6 @@ checkoutBtn.addEventListener("click", () => {
     generatePDF(cartProducts);
 });
 
-
 // Función para generar el PDF con los productos del carrito
 function generatePDF(products) {
     // Tamaño inicial de la imagen kawaii
