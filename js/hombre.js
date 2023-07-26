@@ -78,48 +78,45 @@ const cuteImageWithStyle = {
     }
 };
 
+// Función para agregar el background personalizado con la imagen kawaii en el encabezado de cada página
+const addHeaderImage = (currentPage, pageCount) => {
+    // Definir el contenido del encabezado
+    const headerContent = {
+        stack: [
+            { text: 'Carrito de compras Kawaii', fontSize: 24, margin: [0, 10, 0, 20], bold: true, alignment: 'center', color: '#ff007f' },
+            cuteImageWithStyle
+        ],
+        absolutePosition: { x: 530, y: 40 }, // Posición absoluta en la esquina derecha
+    };
+
+    return { canvas: [headerContent] };
+};
+
 // Crear la definición del documento PDF
 const docDefinition = {
     pageSize: 'A4', // Tamaño de la página
     pageMargins: [40, 60, 40, 60], // Márgenes de la página (izquierda, arriba, derecha, abajo)
-    background: { // Color de fondo para toda la página del PDF
-        canvas: [{ type: 'rect', x: 0, y: 0, w: 595.28, h: 841.89, color: '#34c4f0' }]
-    },
-    // Función para agregar el título en la parte superior de cada página
-    header: (currentPage, pageCount) => {
-        return { text: 'Carrito de compras Kawaii', fontSize: 24, margin: [0, 10, 0, 20], bold: true, alignment: 'center', color: '#ff007f' };
+    // Función para agregar el background con la imagen kawaii como encabezado en cada página
+    background: (currentPage, pageCount) => {
+        return addHeaderImage(currentPage, pageCount);
     },
     // Función para agregar el número de página en la parte inferior de cada página
     footer: (currentPage, pageCount) => {
         return { text: `Página ${currentPage} de ${pageCount}`, alignment: 'center', margin: [0, 20] };
     },
     content: [
-        {
-            table: {
-                widths: ['*'], // Columna de la tabla, '*' significa que ocupa todo el ancho disponible
-                body: [
-                    // Agregar los productos al PDF con estilo kawaii
-                    ...products.map((product, index) => {
-                        return [
-                            { text: product.name, fontSize: 18, bold: true, color: '#ff007f' },
-                            { text: product.description, fontSize: 14, margin: [0, 5], color: '#333333' },
-                            { text: '', margin: [0, 10, 0, 0] }
-                        ];
-                    })
-                ]
-            },
-            layout: 'noBorders' // Elimina los bordes de la tabla
-        },
-        // Agregar la imagen kawaii con estilo en la esquina derecha
-        {
-            absolutePosition: { x: 530, y: 720 }, // Posición absoluta en la esquina derecha
-            ...cuteImageWithStyle
-        }
+        // Agregar los productos al PDF con estilo kawaii
+        ...products.map((product, index) => {
+            return [
+                { text: product.name, fontSize: 18, bold: true, color: '#ff007f' },
+                { text: product.description, fontSize: 14, margin: [0, 5], color: '#333333' },
+                { text: '', margin: [0, 10, 0, 0] }
+            ];
+        })
     ]
 };
 
 // Generar el documento PDF
 const pdfDocGenerator = pdfMake.createPdf(docDefinition);
 pdfDocGenerator.open();
-
 }
