@@ -2,10 +2,6 @@
 const cartIcon = document.querySelector(".cart-icon");
 const cart = document.querySelector(".cart");
 const checkoutBtn = document.querySelector(".checkout"); // Obtener el botón "Finalizar compra"
-const seeMoreButton = document.querySelector(".see-more"); // Obtener el botón "Ver más"
-
-// Ocultar el carrito al inicio
-cart.style.display = "none";
 
 // Evento para mostrar/ocultar el carrito al hacer clic en el ícono
 cartIcon.addEventListener("click", () => {
@@ -14,6 +10,9 @@ cartIcon.addEventListener("click", () => {
 
 // Array para almacenar los productos agregados al carrito
 const cartProducts = [];
+
+const addToCartButtons = document.querySelectorAll(".add-to-cart");
+const cartItemsList = document.querySelector(".cart-items");
 
 // Evento para agregar productos al carrito al hacer clic en el botón "Agregar al carrito"
 addToCartButtons.forEach((button, index) => {
@@ -40,36 +39,40 @@ addToCartButtons.forEach((button, index) => {
             listItem.classList.add("hidden");
         }
 
+        // Ocultar elementos después del cuarto producto
+        if (cartItemsList.children.length > 4) {
+            listItem.classList.add("hidden");
+        }
+
         cartItemsList.appendChild(listItem);
 
         // Si hay más de 4 productos en el carrito, mostrar el botón "Ver más"
         if (cartItemsList.children.length > 4) {
             seeMoreButton.style.display = "block";
         }
-    });
-});
+        });
+        });
 
-// Evento para mostrar/ocultar más productos al hacer clic en el botón "Ver más"
-seeMoreButton.addEventListener("click", () => {
-    // Mostrar 4 productos ocultos en el carrito
-    const hiddenItems = document.querySelectorAll(".cart-items li.hidden");
-    for (let i = 0; i < Math.min(4, hiddenItems.length); i++) {
+        // Evento para mostrar/ocultar más productos al hacer clic en el botón "Ver más"
+        seeMoreButton.addEventListener("click", () => {
+        // Mostrar 4 productos ocultos en el carrito
+        const hiddenItems = document.querySelectorAll(".cart-items li.hidden");
+        for (let i = 0; i < Math.min(4, hiddenItems.length); i++) {
         hiddenItems[i].classList.remove("hidden");
-    }
+        }
 
-    // Ocultar el botón "Ver más" si no quedan más elementos ocultos
-    if (hiddenItems.length <= 4) {
+        // Ocultar el botón "Ver más" si no quedan más elementos ocultos
+        if (hiddenItems.length <= 4) {
         seeMoreButton.style.display = "none";
-    }
-});
+        }
+    });
 
 // Evento para finalizar la compra y generar el PDF
 checkoutBtn.addEventListener("click", () => {
-    console.log("evento1");
+    console.log("evento1")
     // Generar el PDF con los productos del carrito
     generatePDF(cartProducts);
 });
-
 
 // Función para generar el PDF con los productos del carrito
 function generatePDF(products) {
