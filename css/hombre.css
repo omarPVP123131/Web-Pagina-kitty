@@ -55,10 +55,13 @@ body {
   nav li a.mujer-link:hover {
     color: #ff69b4; /* Cambia a color #ff69b4 al poner el cursor sobre "Mujer" */
   }
-  nav li a.cart-icon:hover {
+  nav li a.fas fa-shopping-cart:hover {
     color: #2bc22b; /* Cambia a color #ff69b4 al poner el cursor sobre "Mujer" */
   }
   
+    nav li.fas fa-shopping-cart:hover {
+    color: #2bc22b; /* Cambia a color #ff69b4 al poner el cursor sobre "Mujer" */
+  }
   
 /* Estilos para la galería de productos */
 .gallery-container {
