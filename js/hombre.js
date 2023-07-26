@@ -39,6 +39,7 @@ addToCartButtons.forEach((button, index) => {
 
 // Evento para finalizar la compra y generar el PDF
 checkoutBtn.addEventListener("click", () => {
+    console.log("evento1")
     // Generar el PDF con los productos del carrito
     generatePDF(cartProducts);
 });
