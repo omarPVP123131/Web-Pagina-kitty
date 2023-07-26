@@ -97,13 +97,18 @@ body {
 
 /* Estilos para el carrito desplegable */
 .cart {
-    position: relative;
+    position: fixed;
     top: 80px;
     right: 20px;
     background-color: #22fdd9;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     padding: 10px;
     display: none;
+    z-index: 2;
+}
+
+.cart .see-more {
+  display: none;
 }
 
 /* Estilos para mostrar el carrito cuando tiene la clase "show" */
