@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/hombre.css">
+    <link rel="stylesheet" href="/fontawesome-free-6.4.0-web/css/all.css">
+    <title>Ventas para hombres</title>
+</head>
+<body>
+    <header>
+        <h1>¡Bienvenidos a la tienda kawaii para hombres!</h1>
+        <p>Todos los productos más adorables para el hombre moderno</p>
+    </header>
+
+    <nav class="nav"> <!-- Agregamos la clase "nav" aquí -->
+        <li><a href="index.html"><i class="fa-home-user"></i> Inicio</a></li>
+        <li><a href="#"><i class="fas fa-female"></i> Mujer</a></li>
+        <li class="cart-icon"><i class="fas fa-shopping-cart"></i></li>
+    </nav>
+
+    <div class="product">
+        <img src="/images/a.jpeg" alt="Producto 1 - Camiseta kawaii para hombres">
+        <div class="product-info">
+            <h3>Camiseta kawaii para hombres</h3>
+            <p>Descripción del producto 1.</p>
+        </div>
+        <button class="button add-to-cart">Agregar al carrito</button>
+    </div>
+    
+    
+<!-- Carrito desplegable -->
+<div class="cart">
+    <h2>Carrito de compras</h2>
+    <ul class="cart-items">
+        <!-- Aquí se mostrarán los productos agregados al carrito -->
+    </ul>
+    <button class="button checkout">Finalizar compra</button> <!-- Agrega la clase "checkout" aquí -->
+</div>
+
+
+    <footer>
+        <ul class="social-media">
+            <li><a href="https://www.facebook.com/[nombre de la página de Facebook]" target="_blank"><i class="fab fa-facebook"></i></a></li>
+            <li><a href="https://www.instagram.com/[nombre de la cuenta de Instagram]" target="_blank"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://www.instagram.com/[nombre de la cuenta de Instagram]" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
+  
+            <!-- Agrega más íconos para otras redes sociales si las tiene -->
+          </ul>
+          <div class="certificate">
+            <a href="https://www.instagram.com/[nombre de la cuenta de Instagram]">
+              <img src="/images/OIP.jpeg" alt="Certificado Kitty">
+            </a>
+          </div>
+
+        <section id="contacto">
+            <h2>Contacto</h2>
+            <p>¡Estamos aquí para ayudarte! Si tienes alguna pregunta o consulta, no dudes en ponerte en contacto con nosotros:</p>
+            <ul>
+                <li>Correo electrónico: hellokitty@gmail.com</li>
+                <li>Teléfono: 5586024170</li>
+                <!-- Agrega más detalles de contacto si es necesario -->
+                <li>Envíos: Ofrecemos envíos a nivel nacional. Los tiempos de entrega son de [X] días hábiles.</li>
+            </ul>
+        </section>
+        
+    </footer>
+
+    <!-- Incluye la biblioteca jsPDF en tu proyecto -->
+    
+    <script src="jsPDF-2.5.1/dist/jspdf.umd.min.js"></script>
+    <script src="js/hombre.js"></script>
+</body>
+</html>

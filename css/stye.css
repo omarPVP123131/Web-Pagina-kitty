@@ -1,0 +1,212 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #ffd4e5;
+  transition: background-color 0.3s ease;
+}
+
+body.dark-mode {
+  background-color: #333;
+  color: #fff; /* Texto blanco en modo oscuro */
+}
+
+/* Estilos del encabezado */
+header {
+  width: auto;
+  border-color: #ffc0cb;
+  background-color: #ffccd2;
+  color: #ff69b4;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+header h1 {
+  font-size: 42px;
+}
+
+header p {
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+/* Estilos de la navegación */
+nav {
+  width: auto;
+  background-color: #ffb6c1;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+nav li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+nav li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+/* Estilo para el enlace "Hombre" cuando se pone el cursor sobre él */
+nav li a.hombre-link:hover {
+  color: blue; /* Cambia a color azul al poner el cursor sobre "Hombre" */
+}
+
+/* Estilo para el enlace "Mujer" cuando se pone el cursor sobre él */
+nav li a.mujer-link:hover {
+  color: #ff69b4; /* Cambia a color #ff69b4 al poner el cursor sobre "Mujer" */
+}
+
+/* Estilos de la sección de contacto */
+#contacto {
+  background-color: #ff69b4;
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+#contacto h2 {
+  font-size: 24px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+#contacto p {
+  font-size: 18px;
+  color: #fff;
+  line-height: 1.6;
+}
+
+#contacto ul {
+  list-style: none;
+  padding: 0;
+}
+
+#contacto li {
+  margin-bottom: 10px;
+}
+
+/* Estilos del pie de página */
+footer {
+  width: auto;
+  background-color: #ffb6c1;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  border-top: 1px solid #ff69b4;
+}
+
+.social-media {
+  list-style: none;
+  padding: 0;
+}
+
+.social-media li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.social-media li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 24px;
+}
+
+/* Estilos para el certificado en la esquina izquierda */
+.certificate:nth-child(1),
+.certificate:nth-child(2) {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  cursor: pointer;
+  bottom: 10px;
+  border-radius: 50%;
+  border: 2px solid #ff69b4;
+  animation: rotate 3s linear infinite;
+}
+
+.certificate:nth-child(1) {
+  left: 10px;
+}
+
+.certificate:nth-child(2) {
+  right: 10px;
+}
+
+.certificate img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+  /* Estilos de la galería de imágenes */
+  .gallery-container {
+    position: relative;
+    max-width: 2000px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+
+  .gallery {
+    display: flex;
+    transition: transform 0.3s ease;
+  }
+
+.gallery img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin-right: 10px;
+  border-radius: 50%;
+  border: 2px solid #ff6b6b;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.1);
+}
+
+.prev-btn,
+.next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  background: transparent;
+  border: none;
+  color: #ff69b4;
+  cursor: pointer;
+}
+
+.prev-btn {
+  left: 0;
+}
+
+.next-btn {
+  right: 0;
+}
+
+/* Animaciones */
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
