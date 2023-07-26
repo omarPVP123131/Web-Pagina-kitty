@@ -49,12 +49,13 @@ function generatePDF(products) {
     // Crear la definición del documento PDF
     const docDefinition = {
         content: [
-            { text: 'Carrito de compras Kawaii', fontSize: 24, margin: [0, 0, 0, 20], bold: true, alignment: 'center' }, // Texto centrado y en negrita
-            // Agregar los productos al PDF con estilos personalizados
+            { text: 'Carrito de compras Kawaii', fontSize: 24, margin: [0, 0, 0, 20], bold: true, alignment: 'center', color: '#ff007f' }, // Texto centrado, en negrita, color rosado
+            // Agregar los productos al PDF con estilo kawaii
             ...products.map((product, index) => {
                 return [
-                    { text: product.name, fontSize: 16, bold: true, color: '#ff6600' }, // Título del producto en negrita y color naranja
-                    { text: product.description, fontSize: 12, margin: [0, 5] }, // Descripción del producto con margen superior de 5
+                    { image: '/images/cute.jpeg', width: 30, height: 30, margin: [0, 5, 10, 0] }, // Agregar una imagen kawaii al lado del título
+                    { text: product.name, fontSize: 18, bold: true, color: '#ff007f' }, // Título del producto en negrita y color rosado
+                    { text: product.description, fontSize: 14, margin: [0, 5], color: '#333333' }, // Descripción del producto con margen superior de 5 y color negro
                     { text: '', margin: [0, 10, 0, 0] } // Espacio entre productos
                 ];
             })
