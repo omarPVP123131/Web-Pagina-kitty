@@ -1,0 +1,324 @@
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #e96dd4;
+    color: #000;
+    transition: background-color 2s ease;
+  }
+  
+  body.dark-mode {
+    color: #fff;
+  }
+  
+  /* Estilos para el botón */
+#dark-mode-toggle {
+  color: #fff; /* Color del texto del botón */
+  padding: 15px; /* Espaciado interno del botón */
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Radio de borde para hacerlo redondeado */
+  font-size: 12px; /* Tamaño de la fuente del texto del botón */
+  cursor: pointer; /* Cambiar el cursor al pasar por encima del botón */
+  transition: background-color 0.3s ease;
+  background-image: linear-gradient(to right,
+  rgb(18,194, 233),
+  rgb(196, 113, 237),
+  rgb(246,79,89));
+}
+
+/* Estilos para el icono */
+#dark-mode-toggle i {
+  margin-left: 5px; /* Agregar un margen a la izquierda del icono para separarlo del texto */
+}
+/* Estilos para el ícono dentro del botón */
+#dark-mode-toggle span {
+  display: inline-block; /* Hacer que el ícono sea un elemento en línea para centrarlo verticalmente */
+  transform: rotate(360deg); /* Rotar el ícono para que aparezca como un ícono de luna (puedes ajustar este valor según tus necesidades) */
+}
+
+/* Estilos al pasar el cursor sobre el botón */
+#dark-mode-toggle:hover {
+  animation: glow 2s linear infinite, bounce 0.5s ease;;
+
+}
+
+@keyframes glow{
+  0%{box-shadow: 
+      5px 5px 20px rgb(93, 52,168),
+      5px 5px 20px rgb(93, 52,168);}
+  50%{box-shadow:
+      5px 5px 20px rgb(81, 224, 210),
+      5px 5px 20px rgb(81, 224, 210);}
+  100%{box-shadow:
+      5px 5px 20px rgb(93, 52,168),                
+      5px 5px 20px rgb(93, 52,168);}          
+}
+  /* Estilos del encabezado */
+header {
+  width: auto;
+  border-color: #ffc0cb;
+  background-color: #d82661;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 0px;
+}
+  
+  header h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+  }
+  
+  header p {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+  
+  /* Estilos de la navegación */
+  nav {
+    background-color: #4be077;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+  }
+  
+  nav li {
+    display: inline-block;
+    margin-right: 20px;
+  }
+  
+  nav li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+  }
+  nav li a.inicio-link:hover {
+    color: blue; /* Cambia a color azul al poner el cursor sobre "Hombre" */
+  }
+  
+  /* Estilo para el enlace "Mujer" cuando se pone el cursor sobre él */
+  nav li a.mujer-link:hover {
+    color: #ff69b4; /* Cambia a color #ff69b4 al poner el cursor sobre "Mujer" */
+  }
+/* Cambiar color del icono del carrito al poner el cursor sobre él */
+nav li.cart-icon:hover .fas.fa-shopping-cart {
+  color: #2bc22b; /* Cambiar a color #2bc22b cuando se hace hover sobre el icono del carrito */
+}
+
+  
+/* Estilos para la galería de productos */
+.gallery-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+}
+
+.product img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para el botón de "Agregar al carrito" */
+.button {
+    background-color: #6affcd;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.button:hover {
+    background-color: #ff4b92;
+}
+
+/* Estilos para el carrito desplegable */
+.cart {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    background-color: #93ceff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    display: none;
+    z-index: 2;
+}
+
+.cart .see-more {
+  display: none;
+}
+
+/* Estilos para mostrar el carrito cuando tiene la clase "show" */
+.cart.show {
+    display: block;
+}
+
+
+.cart h2 {
+    margin-bottom: 10px;
+}
+
+.cart-items {
+    list-style: none;
+    padding: 0;
+}
+
+.cart-items li {
+    margin-bottom: 10px;
+}
+
+/* Estilos para el botón "Cerrar carrito" */
+.close-cart-btn {
+  background-color: #ff007f;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 55px;
+  cursor: pointer;
+  font-size: 16px;
+  position: revert;
+  top: 95px;
+  right: 40px;
+}
+
+.close-cart-btn i {
+  font-size: 25px; /* Tamaño del ícono */
+}
+
+.close-cart-btn:hover {
+  background-color: #ff005f; /* Cambia el color de fondo al pasar el cursor sobre el botón */
+}
+
+
+/* Estilos para el ícono del carrito en la barra de navegación */
+.nav .cart-icon {
+    cursor: pointer;
+}
+
+/* Estilos para el pie de página */
+
+  footer {
+    width: auto;
+    background-color: #d82661;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    border-top: 1px solid #ff69b4;
+  }
+  
+  .social-media {
+    list-style: none;
+    padding: 0;
+}
+
+.social-media li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.social-media li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 24px;
+}
+
+.social-media li a:hover {
+    color: #2b72c2; /* Color al poner el cursor sobre el ícono de Facebook */
+}
+
+.social-media li a[href*="instagram"]:hover {
+    color: #e4405f; /* Color al poner el cursor sobre el ícono de Instagram */
+}
+
+.social-media li a[href*="whatsapp"]:hover {
+    color: #25d366; /* Color al poner el cursor sobre el ícono de WhatsApp */
+}
+
+  
+  /* Estilos para la sección de contacto */
+  #contacto {
+    background-color: #45fcce;
+    color: #333;
+    padding: 20px;
+  }
+  
+  #contacto h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  #contacto p {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  #contacto ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  #contacto li {
+    margin-bottom: 10px;
+  }
+  
+  /* Estilos para el certificado en la esquina izquierda */
+  .certificate:nth-child(1),
+  .certificate:nth-child(2) {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    cursor: pointer;
+    bottom: 10px;
+    border-radius: 50%;
+    border: 2px solid #ff69b4;
+    animation: rotate 3s linear infinite;
+  }
+  
+  .certificate:nth-child(1) {
+    left: 10px;
+  }
+  
+  .certificate:nth-child(2) {
+    right: 10px;
+  }
+  
+  .certificate img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
+  
+  /* Animaciones */
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  

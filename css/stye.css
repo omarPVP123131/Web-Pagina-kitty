@@ -18,8 +18,8 @@ body.dark-mode {
   cursor: pointer; /* Cambiar el cursor al pasar por encima del botón */
   transition: background-color 0.3s ease;
   background-image: linear-gradient(to right,
-  rgb(18,194, 233),
-  rgb(196, 113, 237),
+  rgb(246,79,89),
+  rgb(246,79,89),
   rgb(246,79,89));
 }
 
@@ -38,15 +38,23 @@ body.dark-mode {
 @keyframes glow{
   0%{box-shadow: 
       5px 5px 20px rgb(93, 52,168),
-      5px 5px 20px rgb(93, 52,168);}
+      5px 5px 20px rgb(246,79,89);}
   50%{box-shadow:
       5px 5px 20px rgb(81, 224, 210),
-      5px 5px 20px rgb(81, 224, 210);}
+      5px 5px 20px rgb(246,79,89);}
   100%{box-shadow:
       5px 5px 20px rgb(93, 52,168),                
-      5px 5px 20px rgb(93, 52,168);}          
+      5px 5px 20px rgb(246,79,89);}          
 }
-
+@keyframes bounce {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
 /* Estilos del encabezado */
 header {
   width: auto;

@@ -5,6 +5,43 @@ const closeCartBtn = document.querySelector(".close-cart-btn"); // Obtener el bo
 const checkoutBtn = document.querySelector(".checkout"); // Obtener el botón "Finalizar compra"
 const cartItemCount = document.querySelector(".cart-item-count"); // Elemento para mostrar el número de productos
 
+const darkModeToggle = document.getElementById('dark-mode-toggle');
+const body = document.body;
+let changeColorInterval; // Variable para almacenar el intervalo de cambio de color
+let isDarkMode = false; // Variable para verificar si el modo rafaga de colores está activado
+
+// Función para obtener un color aleatorio
+function getRandomColor() {
+    var letters = "0123456789ABCDEF";
+    var color = "#";
+    for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
+// Función para cambiar el color de fondo aleatoriamente
+function changeBackgroundColor() {
+    if (isDarkMode) {
+        var newColor = getRandomColor();
+        body.style.backgroundColor = newColor;
+    }
+}
+
+// Evento para alternar el modo rafaga de colores
+darkModeToggle.addEventListener('click', () => {
+    isDarkMode = !isDarkMode; // Alternar el estado del modo rafaga de colores
+    darkModeToggle.classList.toggle('dark', isDarkMode); // Agregar clase 'dark' si el modo rafaga de colores está activado
+
+    // Si se desactiva el modo rafaga de colores, restaurar el color de fondo original y detener el cambio de color
+    if (!isDarkMode) {
+        body.style.backgroundColor = "#e1d5ff";
+        clearInterval(changeColorInterval);
+    } else {
+        // Si se activa el modo rafaga de colores, iniciar el cambio de color de fondo aleatoriamente
+        changeColorInterval = setInterval(changeBackgroundColor, 100);
+    }
+});
 
 // Evento para mostrar/ocultar el carrito al hacer clic en el ícono
 cartIcon.addEventListener("click", () => {
@@ -70,6 +107,12 @@ addToCartButtons.forEach((button, index) => {
         updateCartItemCount();
     });
 });
+// Función para detectar si el dispositivo es Android
+function isAndroid() {
+    return /Android/i.test(navigator.userAgent);
+}
+
+// Evento para finalizar la compra y mostrar notificación en Android
 checkoutBtn.addEventListener("click", () => {
     // Generar el PDF con los productos del carrito
     generatePDF(cartProducts);
@@ -90,13 +133,26 @@ checkoutBtn.addEventListener("click", () => {
             });
         }
     }
+
+    // Si el dispositivo es Android, redirigir al usuario a la página de compra
+    if (isAndroid()) {
+        window.location.href = "/Hombres.html";
+    }
 });
+
 
 function showNotification() {
     const notificationOptions = {
         body: "Gracias por tu compra, vuelve pronto! 🎉",
         icon: "/images/kawaii.jpeg", // URL del ícono que deseas mostrar
     };
+    const notification = new Notification("¡Compra finalizada!", notificationOptions);
+
+    // Agregar evento de clic a la notificación
+    notification.addEventListener("click", () => {
+        // Redirigir al usuario a la página de compra
+        window.location.href = "/Hombres.html";
+    });
 
     // Mostrar la notificación
     new Notification("¡Compra finalizada!", notificationOptions);

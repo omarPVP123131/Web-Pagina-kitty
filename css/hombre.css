@@ -3,14 +3,55 @@ body {
     font-family: 'Arial', sans-serif;
     background-color: #e1d5ff;
     color: #000;
-    transition: background-color 0.3s ease;
+    transition: background-color 2s ease;
   }
   
   body.dark-mode {
-    background-color: #333;
     color: #fff;
   }
   
+  /* Estilos para el botón */
+#dark-mode-toggle {
+  color: #fff; /* Color del texto del botón */
+  padding: 15px; /* Espaciado interno del botón */
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Radio de borde para hacerlo redondeado */
+  font-size: 12px; /* Tamaño de la fuente del texto del botón */
+  cursor: pointer; /* Cambiar el cursor al pasar por encima del botón */
+  transition: background-color 0.3s ease;
+  background-image: linear-gradient(to right,
+  rgb(18,194, 233),
+  rgb(196, 113, 237),
+  rgb(246,79,89));
+}
+
+/* Estilos para el icono */
+#dark-mode-toggle i {
+  margin-left: 5px; /* Agregar un margen a la izquierda del icono para separarlo del texto */
+}
+/* Estilos para el ícono dentro del botón */
+#dark-mode-toggle span {
+  display: inline-block; /* Hacer que el ícono sea un elemento en línea para centrarlo verticalmente */
+  transform: rotate(360deg); /* Rotar el ícono para que aparezca como un ícono de luna (puedes ajustar este valor según tus necesidades) */
+}
+
+/* Estilos al pasar el cursor sobre el botón */
+#dark-mode-toggle:hover {
+  animation: glow 2s linear infinite, bounce 0.5s ease;;
+
+}
+
+@keyframes glow{
+  0%{box-shadow: 
+      5px 5px 20px rgb(93, 52,168),
+      5px 5px 20px rgb(93, 52,168);}
+  50%{box-shadow:
+      5px 5px 20px rgb(81, 224, 210),
+      5px 5px 20px rgb(81, 224, 210);}
+  100%{box-shadow:
+      5px 5px 20px rgb(93, 52,168),                
+      5px 5px 20px rgb(93, 52,168);}          
+}
   /* Estilos del encabezado */
 header {
   width: auto;
