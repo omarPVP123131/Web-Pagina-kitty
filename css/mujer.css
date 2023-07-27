@@ -13,8 +13,9 @@ body {
   /* Estilos para el botón */
 #dark-mode-toggle {
   color: #fff; /* Color del texto del botón */
-  padding: 15px; /* Espaciado interno del botón */
+  padding: 10px; /* Espaciado interno del botón */
   border: none; /* Sin borde */
+  margin-left: -5px;
   border-radius: 5px; /* Radio de borde para hacerlo redondeado */
   font-size: 12px; /* Tamaño de la fuente del texto del botón */
   cursor: pointer; /* Cambiar el cursor al pasar por encima del botón */
