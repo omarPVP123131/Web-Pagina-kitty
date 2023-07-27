@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/fontawesome-free-6.4.0-web/css/all.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.12.0/toastify.js"></script>
     <title>Ventas para hombres</title>
 </head>
 <body>
@@ -16,9 +17,13 @@
     </header>
 
     <nav class="nav"> <!-- Agregamos la clase "nav" aquí -->
-        <li><a href="index.html" class="inicio-link"><i class="fa-home-user"></i> Inicio</a></li>
+        <li><a href="index.html" class="inicio-link"><i class="fa-home-alt"></i> Inicio</a></li>
         <li><a href="#" class="mujer-link"><i class="fas fa-female"></i> Mujer</a></li>
-        <li class="cart-icon"><i class="fas fa-shopping-cart"></i></li>
+        <li class="cart-icon">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-item-count">0</span> <!-- Elemento para mostrar el número de productos -->
+        </li>
+        
     </nav>
 
     <div class="product">
@@ -27,6 +32,7 @@
             <h3>Camiseta kawaii para hombres</h3>
             <p>Descripción del producto 1.</p>
         </div>
+        <p>En stock: <span class="stock-count">10</span></p> <!-- Muestra la cantidad disponible en stock -->
         <button class="button add-to-cart">Agregar al carrito</button>
     </div>
     
@@ -36,6 +42,7 @@
             <h3> Pantalon kawaii para hombres</h3>
             <p>Descripción del producto 1.</p>
         </div>
+        <p>En stock: <span class="stock-count">10</span></p> <!-- Muestra la cantidad disponible en stock -->
         <button class="button add-to-cart">Agregar al carrito</button>
     </div>
 
@@ -45,6 +52,7 @@
             <h3> Pantalon kawaii para hombres</h3>
             <p>Descripción del producto 1.</p>
         </div>
+        <p>En stock: <span class="stock-count">10</span></p> <!-- Muestra la cantidad disponible en stock -->
         <button class="button add-to-cart">Agregar al carrito</button>
     </div>
     
@@ -54,17 +62,32 @@
             <h3> Pantalon kawaii para hombres</h3>
             <p>Descripción del producto 1.</p>
         </div>
+        <p>En stock: <span class="stock-count">10</span></p> <!-- Muestra la cantidad disponible en stock -->
+        <button class="button add-to-cart">Agregar al carrito</button>
+    </div>
+
+    <div class="product">
+        <img src="/images/a.jpeg" alt="Producto 5 - Pantalon kawaii para hombres">
+        <div class="product-info">
+            <h3> Pantalon kawaii para hombres</h3>
+            <p>Descripción del producto 1.</p>
+        </div>
+        <p>En stock: <span class="stock-count">10</span></p> <!-- Muestra la cantidad disponible en stock -->
         <button class="button add-to-cart">Agregar al carrito</button>
     </div>
 
 <!-- Carrito desplegable -->
 <div class="cart">
+    <button class="close-cart-btn"><i class="fas fa-times"></i></button> <!-- Botón para cerrar el carrito -->
     <h2>Carrito de compras</h2>
     <ul class="cart-items">
         <!-- Aquí se mostrarán los productos agregados al carrito -->
     </ul>
     <button class="button checkout">Finalizar compra</button> <!-- Agrega la clase "checkout" aquí -->
+    <!-- Agregar un elemento para mostrar el número de productos nuevos -->
+    <div class="new-products-count"></div>
 </div>
+
 
 
     <footer>

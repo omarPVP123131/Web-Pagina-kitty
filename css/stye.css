@@ -5,8 +5,46 @@ body {
 }
 
 body.dark-mode {
-  background-color: #333;
+  background-color: #5c0a47;
   color: #fff; /* Texto blanco en modo oscuro */
+}
+/* Estilos para el botón */
+#dark-mode-toggle {
+  color: #fff; /* Color del texto del botón */
+  padding: 10px; /* Espaciado interno del botón */
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Radio de borde para hacerlo redondeado */
+  font-size: 12px; /* Tamaño de la fuente del texto del botón */
+  cursor: pointer; /* Cambiar el cursor al pasar por encima del botón */
+  transition: background-color 0.3s ease;
+  background-image: linear-gradient(to right,
+  rgb(18,194, 233),
+  rgb(196, 113, 237),
+  rgb(246,79,89));
+}
+
+/* Estilos para el ícono dentro del botón */
+#dark-mode-toggle span {
+  display: inline-block; /* Hacer que el ícono sea un elemento en línea para centrarlo verticalmente */
+  transform: rotate(360deg); /* Rotar el ícono para que aparezca como un ícono de luna (puedes ajustar este valor según tus necesidades) */
+}
+
+/* Estilos al pasar el cursor sobre el botón */
+#dark-mode-toggle:hover {
+  animation: glow 2s linear infinite, bounce 0.5s ease;;
+
+}
+
+@keyframes glow{
+  0%{box-shadow: 
+      5px 5px 20px rgb(93, 52,168),
+      5px 5px 20px rgb(93, 52,168);}
+  50%{box-shadow:
+      5px 5px 20px rgb(81, 224, 210),
+      5px 5px 20px rgb(81, 224, 210);}
+  100%{box-shadow:
+      5px 5px 20px rgb(93, 52,168),                
+      5px 5px 20px rgb(93, 52,168);}          
 }
 
 /* Estilos del encabezado */
@@ -18,7 +56,7 @@ header {
   padding: 20px;
   text-align: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
+  border-radius: 0px;
 }
 
 header h1 {
@@ -53,7 +91,7 @@ nav li a {
 
 /* Estilo para el enlace "Hombre" cuando se pone el cursor sobre él */
 nav li a.hombre-link:hover {
-  color: blue; /* Cambia a color azul al poner el cursor sobre "Hombre" */
+  color: rgb(18, 221, 221); /* Cambia a color azul al poner el cursor sobre "Hombre" */
 }
 
 /* Estilo para el enlace "Mujer" cuando se pone el cursor sobre él */

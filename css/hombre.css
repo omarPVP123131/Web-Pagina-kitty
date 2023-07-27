@@ -20,7 +20,7 @@ header {
   padding: 20px;
   text-align: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
+  border-radius: 0px;
 }
   
   header h1 {
@@ -146,6 +146,29 @@ nav li.cart-icon:hover .fas.fa-shopping-cart {
 .cart-items li {
     margin-bottom: 10px;
 }
+
+/* Estilos para el botón "Cerrar carrito" */
+.close-cart-btn {
+  background-color: #ff007f;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 55px;
+  cursor: pointer;
+  font-size: 16px;
+  position: revert;
+  top: 95px;
+  right: 40px;
+}
+
+.close-cart-btn i {
+  font-size: 25px; /* Tamaño del ícono */
+}
+
+.close-cart-btn:hover {
+  background-color: #ff005f; /* Cambia el color de fondo al pasar el cursor sobre el botón */
+}
+
 
 /* Estilos para el ícono del carrito en la barra de navegación */
 .nav .cart-icon {

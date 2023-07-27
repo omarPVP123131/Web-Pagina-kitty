@@ -1,11 +1,26 @@
 // Obtener elementos del DOM
 const cartIcon = document.querySelector(".cart-icon");
 const cart = document.querySelector(".cart");
+const closeCartBtn = document.querySelector(".close-cart-btn"); // Obtener el botón "Cerrar carrito"
 const checkoutBtn = document.querySelector(".checkout"); // Obtener el botón "Finalizar compra"
+const cartItemCount = document.querySelector(".cart-item-count"); // Elemento para mostrar el número de productos
+
 
 // Evento para mostrar/ocultar el carrito al hacer clic en el ícono
 cartIcon.addEventListener("click", () => {
     cart.classList.toggle("show");
+});
+
+// Evento para cerrar el carrito al hacer clic en el botón "Cerrar carrito"
+closeCartBtn.addEventListener("click", () => {
+    cart.classList.remove("show");
+});
+
+// Evento para cerrar el carrito cuando se haga clic fuera de él
+document.addEventListener("click", (event) => {
+    if (!cart.contains(event.target) && !cartIcon.contains(event.target)) {
+        cart.classList.remove("show");
+    }
 });
 
 // Array para almacenar los productos agregados al carrito
@@ -17,12 +32,18 @@ const cartItemsList = document.querySelector(".cart-items");
 // Establecer límite máximo de productos en el carrito
 const maxProductsInCart = 12;
 
+
+// Función para actualizar el número de productos en el carrito
+function updateCartItemCount() {
+    cartItemCount.textContent = cartProducts.length;
+}
+
 // Evento para agregar productos al carrito al hacer clic en el botón "Agregar al carrito"
 addToCartButtons.forEach((button, index) => {
     button.addEventListener("click", () => {
         // Verificar si se ha alcanzado el límite máximo de productos en el carrito
         if (cartProducts.length >= maxProductsInCart) {
-            alert("¡El carrito ha alcanzado el límite máximo de productos !Por favor Termina tu compra con los productos actuales y luego vuelve a por mas!");
+            alert("¡Lamentamos informarte que el carrito solo soporta 12 articulos por compra por favor finaliza tu ticket y luego vuelve por mas!");
             return; // Detener la ejecución si se ha alcanzado el límite
         }
 
@@ -44,15 +65,43 @@ addToCartButtons.forEach((button, index) => {
         `;
 
         cartItemsList.appendChild(listItem);
+
+        // Actualizar el número de productos en el carrito
+        updateCartItemCount();
     });
 });
-
-// Evento para finalizar la compra y generar el PDF
 checkoutBtn.addEventListener("click", () => {
-    console.log("evento1")
     // Generar el PDF con los productos del carrito
     generatePDF(cartProducts);
+
+    // Verificar si el navegador admite notificaciones
+    if ("Notification" in window) {
+        // Comprobar si las notificaciones están permitidas
+        if (Notification.permission === "granted") {
+            // Mostrar la notificación si las notificaciones están permitidas
+            showNotification();
+        } else {
+            // Si las notificaciones no están permitidas, solicitar permiso
+            Notification.requestPermission().then(permission => {
+                if (permission === "granted") {
+                    // Mostrar la notificación si el permiso es concedido
+                    showNotification();
+                }
+            });
+        }
+    }
 });
+
+function showNotification() {
+    const notificationOptions = {
+        body: "Gracias por tu compra, vuelve pronto! 🎉",
+        icon: "/images/kawaii.jpeg", // URL del ícono que deseas mostrar
+    };
+
+    // Mostrar la notificación
+    new Notification("¡Compra finalizada!", notificationOptions);
+}
+
 
 
 // Función para generar el PDF con los productos del carrito
