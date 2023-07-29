@@ -67,7 +67,7 @@ const addToCartButtons = document.querySelectorAll(".add-to-cart");
 const cartItemsList = document.querySelector(".cart-items");
 
 // Establecer límite máximo de productos en el carrito
-const maxProductsInCart = 12;
+const maxProductsInCart = 11;
 
 
 // Función para actualizar el número de productos en el carrito
@@ -80,7 +80,7 @@ addToCartButtons.forEach((button, index) => {
     button.addEventListener("click", () => {
         // Verificar si se ha alcanzado el límite máximo de productos en el carrito
         if (cartProducts.length >= maxProductsInCart) {
-            alert("¡Lamentamos informarte que el carrito solo soporta 12 articulos por compra por favor finaliza tu ticket y luego vuelve por mas!");
+            alert("¡Lamentamos informarte que el carrito solo soporta 11 articulos por compra por favor finaliza tu ticket y luego vuelve por mas!");
             return; // Detener la ejecución si se ha alcanzado el límite
         }
 
