@@ -60,7 +60,7 @@ header {
   width: auto;
   border-color: #ffc0cb;
   background-color: #ffccd2;
-  color: #ff69b4;
+  color: #333;
   padding: 20px;
   text-align: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -172,9 +172,10 @@ footer {
   color: #e4405f; /* Color al poner el cursor sobre el ícono de Instagram */
 }
 
-.social-media li a[href*="whatsapp"]:hover {
+.social-media li a[href*="https://wa.me"]:hover {
   color: #25d366; /* Color al poner el cursor sobre el ícono de WhatsApp */
 }
+
 /* Estilos para el certificado en la esquina izquierda */
 .certificate:nth-child(1),
 .certificate:nth-child(2) {

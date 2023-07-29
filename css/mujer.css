@@ -156,15 +156,17 @@ nav li.cart-icon:hover .fas.fa-shopping-cart {
 
 /* Estilos para el carrito desplegable */
 .cart {
-    position: fixed;
-    top: 80px;
-    right: 20px;
-    background-color: #93ceff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    padding: 10px;
-    display: none;
-    z-index: 2;
+  border: solid;
+  position: fixed;
+  top: 160px;
+  right: 10px;
+  background-color: #22fdd9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  display: none;
+  z-index: 2;
 }
+
 
 .cart .see-more {
   display: none;
@@ -191,7 +193,7 @@ nav li.cart-icon:hover .fas.fa-shopping-cart {
 
 /* Estilos para el botón "Cerrar carrito" */
 .close-cart-btn {
-  background-color: #ff007f;
+  background-color: transparent;
   color: #fff;
   padding: 10px;
   border: none;
@@ -215,6 +217,16 @@ nav li.cart-icon:hover .fas.fa-shopping-cart {
 /* Estilos para el ícono del carrito en la barra de navegación */
 .nav .cart-icon {
     cursor: pointer;
+}
+
+/* Estilos para el input dentro del carrito */
+#customer-name {
+  width: auto;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 10px;
 }
 
 /* Estilos para el pie de página */
@@ -252,10 +264,25 @@ nav li.cart-icon:hover .fas.fa-shopping-cart {
     color: #e4405f; /* Color al poner el cursor sobre el ícono de Instagram */
 }
 
-.social-media li a[href*="whatsapp"]:hover {
-    color: #25d366; /* Color al poner el cursor sobre el ícono de WhatsApp */
+.social-media li a[href*="https://wa.me"]:hover {
+  color: #25d366; /* Color al poner el cursor sobre el ícono de WhatsApp */
 }
-
+    /* Estilos para la imagen del carrito */
+    .cart-image {
+      width: 110px;
+      height: auto;
+      max-width: 100%;
+      display: block;
+      padding: 10px;
+  }
+      /* Estilos para los h3 dentro del carrito */
+      .cart h3 {
+        width: auto;
+        font-size: 18px;
+        color: #333;
+        display: table-header-group;
+        margin: 10px 0;
+    }
   
   /* Estilos para la sección de contacto */
   #contacto {

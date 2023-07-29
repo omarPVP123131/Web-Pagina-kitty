@@ -112,10 +112,19 @@ function isAndroid() {
     return /Android/i.test(navigator.userAgent);
 }
 
-// Evento para finalizar la compra y mostrar notificación en Android
+// Evento para finalizar la compra y mostrar notificación
 checkoutBtn.addEventListener("click", () => {
-    // Generar el PDF con los productos del carrito
-    generatePDF(cartProducts);
+    // Obtener el nombre del cliente ingresado en el carrito
+    const customerName = document.getElementById("customer-name").value;
+
+    // Verificar si el nombre del cliente está vacío
+    if (!customerName) {
+        alert("Por favor, ingresa tu nombre antes de finalizar la compra.");
+        return;
+    }
+
+    // Generar el PDF con los productos del carrito y el nombre del cliente
+    generatePDF(cartProducts, customerName);
 
     // Verificar si el navegador admite notificaciones
     if ("Notification" in window) {
@@ -182,7 +191,8 @@ const cuteImageWithStyle = {
         borderRadius: 25 // Hace que las esquinas de la imagen sean redondeadas
     }
 };
-
+    // Obtener el nombre del cliente ingresado en el carrito (reemplaza "customerName" con la variable que contenga el nombre del cliente)
+    const customerName = document.getElementById("customer-name").value;
     // Crear la definición del documento PDF
     const docDefinition = {
         pageSize: 'A4', // Tamaño de la página
@@ -211,7 +221,16 @@ const cuteImageWithStyle = {
                     { text: product.description, fontSize: 14, margin: [0, 5], color: '#333333' },
                     { text: '', margin: [0, 10, 0, 0] }
                 ];
-            })
+            }),
+            // Agregar el nombre del cliente debajo de la sección de productos
+            { 
+                text: `Nombre del cliente: ${customerName}`, 
+                fontSize: 16, 
+                margin: [0, 20], 
+                color: '#ff007f',
+                bold: true,
+                alignment: 'center'
+            }
         ]
     };
 
